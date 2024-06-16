@@ -88,36 +88,43 @@ def create_page_in_database(database_id, properties):
         print(f"Page created successfully")
 
 '''
-new_page_properties = {
-        "Quote": {
-            "rich_text": [
-                {
-                    "text": {
-                        "content": "Knowing is not enough; we must apply. Willing is not enough; we must do."
-                    },
-                    "annotations": {
-                        "bold": False,
-                        "italic": True
-                    }
-                },
-            ]
-        },
-        "Author": {
-            "rich_text": [
-                {
-                    "text": {
-                        "content": "Johann Wolfgang von Goethe"
-                    },
-                    "annotations": {
-                        "bold": True,
-                        "italic": False
-                    }
-                },
-            ]
-        }
-    }
+This is a template so you can add your own quotes.
+--------------------------------------------------------
 
-create_page_in_database(DATABASE_ID, new_page_properties)
+new_quotes = [["Knowing is not enough; we must apply. Willing is not enough; we must do.", "Johann Wolfgang von Goethe"],
+             ["The only way to do great work is to love what you do.", "Steve Jobs"]]
+
+for quote in new_quotes:         
+    new_page_properties = {
+            "Quote": {
+                "rich_text": [
+                    {
+                        "text": {
+                            "content": quote[0]
+                        },
+                        "annotations": {
+                            "bold": False,
+                            "italic": True
+                        }
+                    },
+                ]
+            },
+            "Author": {
+                "rich_text": [
+                    {
+                        "text": {
+                            "content": quote[1]
+                        },
+                        "annotations": {
+                            "bold": True,
+                            "italic": False
+                        }
+                    },
+                ]
+            }
+        }
+
+    create_page_in_database(DATABASE_ID, new_page_properties)
 '''
 
 blocks = get_page_blocks(BLOCK_ID)
